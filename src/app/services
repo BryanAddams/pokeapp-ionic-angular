@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface PokemonListResponse {
+  results: { name: string; url: string }[];
+  // outras propriedades que a API retorna, se quiser detalhar
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PokemonService {
+  private apiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100';
+
+  constructor(private http: HttpClient) {}
+
+  getPokemons(): Observable<PokemonListResponse> {
+    return this.http.get<PokemonListResponse>(this.apiUrl);
+  }
+}

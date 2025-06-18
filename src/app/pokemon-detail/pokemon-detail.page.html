@@ -1,0 +1,59 @@
+<ion-content class="detail-content" scroll-y="true">
+  <!-- Seu conteúdo do card e etc, só aqui dentro -->
+  <ion-spinner *ngIf="loading" name="crescent" class="loading-spinner"></ion-spinner>
+
+  <div *ngIf="error" class="error-message" role="alert">
+    <p>Erro ao carregar o Pokémon. Por favor, tente novamente.</p>
+    <ion-button color="danger" (click)="fetchPokemon()">Tentar novamente</ion-button>
+  </div>
+
+  <ion-card *ngIf="pokemon && !loading">
+    <!-- seu conteúdo atual do card -->
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="ion-justify-content-between ion-padding-horizontal ion-margin-top">
+
+        <ion-col size="6" class="ion-text-start">
+          <ion-button
+            expand="block"
+            fill="outline"
+            color="medium"
+            [disabled]="pokemon.id === 1"
+            (click)="goToPokemon(pokemon.id - 1)"
+          >
+            <ion-icon name="arrow-back" slot="start"></ion-icon>
+            Anterior
+            <img
+              *ngIf="pokemon.id > 1"
+              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + (pokemon.id - 1) + '.png'"
+              alt="Anterior"
+              style="width: 32px; height: 32px; margin-left: 8px;"
+            />
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6" class="ion-text-end">
+          <ion-button
+            expand="block"
+            fill="outline"
+            color="medium"
+            (click)="goToPokemon(pokemon.id + 1)"
+          >
+            Próximo
+            <img
+              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + (pokemon.id + 1) + '.png'"
+              alt="Próximo"
+              style="width: 32px; height: 32px; margin-left: 8px;"
+            />
+            <ion-icon name="arrow-forward" slot="end"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

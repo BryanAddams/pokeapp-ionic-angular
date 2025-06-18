@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista dos Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let pokemon of favoritePokemons" (click)="goToDetails(pokemon.name)" button detail="true">
+      <ion-avatar slot="start">
+        <img [src]="pokemon.sprites?.front_default" alt="{{ pokemon.name }}" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ pokemon.name | titlecase }}</h2>
+        <p>#{{ pokemon.id }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="favoritePokemons.length === 0" class="empty-message">
+    Nenhum Pokémon favorito ainda.
+  </div>
+</ion-content>
