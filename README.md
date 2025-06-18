@@ -3,6 +3,11 @@
 Olá! Este é meu projeto de Pokédex desenvolvido com Ionic + Angular, utilizando a [PokeAPI](https://pokeapi.co/) como fonte de dados.  
 O objetivo foi criar uma experiência agradável e responsiva para listar Pokémons, visualizar detalhes, marcar favoritos e navegar entre eles.
 
+## Demonstração em vídeo
+
+Veja o funcionamento do app no meu LinkedIn:  
+[Assista ao vídeo no LinkedIn](https://www.linkedin.com/posts/bryan-lima-175944210_angular-ionic-pokeapi-activity-7340953917465231360-vnpZ?utm_source=share&utm_medium=member_android&rcm=ACoAADWIS-kBMpNw4L8bbcR84UhhWEZimr1Ml3Y)
+
 ## Sobre minha abordagem
 
 1. Optei por Angular standalone components para deixar o código mais limpo e modular.
